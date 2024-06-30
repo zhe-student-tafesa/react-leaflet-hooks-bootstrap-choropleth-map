@@ -21,7 +21,7 @@ const PopupContent = ({ name, confirmedText, salesData }) => (
         </div>
       </div>)
       :
-      (<div> No Sales Data </div>)
+      (<div>{name}: No Sales Data </div>)
     }
   </div>
 );
