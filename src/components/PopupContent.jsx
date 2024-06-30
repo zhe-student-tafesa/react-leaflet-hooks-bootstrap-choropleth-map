@@ -3,17 +3,26 @@ import LineChartComponent from "./LineChart";
 
 const PopupContent = ({ name, confirmedText, salesData }) => (
   <div>
-    <h3>{name}</h3>
-    <p>Confirmed Cases: {confirmedText}</p>
-    {salesData != null ? (<div
-      style={{
-        height: "300px",
-        width: "300px"
-      }}
-    >
-  
-      <LineChartComponent salesData={salesData} />
-      </div>) : <div>no salesData</div>}
+    {salesData != null ?
+      (<div
+        style={{
+          height: "350px",
+          width: "400px"
+        }}
+      >
+        <div
+          style={{
+            height: "300px",
+            width: "303px"
+          }}
+        >
+          <h5 style={{ marginTop: "20px" }}>{name}: Sales Data</h5>
+          <LineChartComponent salesData={salesData} />
+        </div>
+      </div>)
+      :
+      (<div> No Sales Data </div>)
+    }
   </div>
 );
 

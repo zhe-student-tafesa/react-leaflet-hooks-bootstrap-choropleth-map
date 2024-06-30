@@ -47,33 +47,67 @@ class LoadCountryTask {
           country.properties.salesData=  [
             {
                 name: 'Jan',
-                revenue: 4000,
+                // revenue: 4000,
                 profit: 2400,
             },
             {
                 name: 'Feb',
-                revenue: 3000,
-                profit: 1398,
+                // revenue: 3000,
+                profit: 2498,
             },
             {
                 name: 'Mar',
-                revenue: 9800,
-                profit: 2000,
+                // revenue: 9800,
+                profit: 2600,
             },
             {
                 name: 'Apr',
-                revenue: 3908,
+                // revenue: 3908,
                 profit: 2780,
             },
             {
                 name: 'May',
-                revenue: 4800,
-                profit: 1890,
+                // revenue: 4800,
+                profit: 2890,
             },
             {
                 name: 'Jun',
-                revenue: 3800,
+                // revenue: 3800,
+                profit: 3090,
+            },
+        ];
+        }
+        if(country.properties.ISO_A3==="AUS"){
+          country.properties.salesData=  [
+            {
+                name: 'Jan',
+                // revenue: 4000,
+                profit: 1400,
+            },
+            {
+                name: 'Feb',
+                // revenue: 3000,
+                profit: 1798,
+            },
+            {
+                name: 'Mar',
+                // revenue: 9800,
+                profit: 1960,
+            },
+            {
+                name: 'Apr',
+                // revenue: 3908,
+                profit: 2180,
+            },
+            {
+                name: 'May',
+                // revenue: 4800,
                 profit: 2390,
+            },
+            {
+                name: 'Jun',
+                // revenue: 3800,
+                profit: 2790,
             },
         ];
         }

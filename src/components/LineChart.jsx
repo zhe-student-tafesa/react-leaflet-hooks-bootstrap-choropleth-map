@@ -10,10 +10,10 @@ import {
 const LineChartComponent = ({ salesData }) => {
     return <ResponsiveContainer>
         <LineChart
-            width={500}
+            width={300}
             height={300}
             data={salesData}
-            margin={{ right: 30 }}>
+            margin={{ right: 30, top:20 }}>
 
             <CartesianGrid strokeDasharray="3 3" />
             <YAxis />
@@ -22,7 +22,7 @@ const LineChartComponent = ({ salesData }) => {
             {/* bottom description */}
             <Legend />
 
-            <Line dataKey='revenue' fill="#3b82f6" type="monotone" />
+            {/* <Line dataKey='revenue' fill="#3b82f6" type="monotone" /> */}
             <Line dataKey='profit' fill="#8b5cf6" type="monotone" />
         </LineChart>
     </ResponsiveContainer>
