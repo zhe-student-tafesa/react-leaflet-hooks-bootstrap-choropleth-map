@@ -40,7 +40,7 @@ const CustomTooltip = ({ active, payload, label }) => {
                 <p className="popup-title">{label}</p>
                 <p className="popup-text">
                     profit:
-                    <span className="ml-2">${payload[0].value}</span>
+                    <span>${payload[0].value}</span>
                 </p>
             </div>
         );
