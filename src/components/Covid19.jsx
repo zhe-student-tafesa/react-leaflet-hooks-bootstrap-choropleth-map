@@ -26,7 +26,7 @@ const Covid19 = () => {
       ) : (
         <div>
           <CovidMap countries={countries} />
-          <Legend legendItems={legendItemsReverse} />
+          {/* <Legend legendItems={legendItemsReverse} /> */}
         </div>
       )}
     </div>

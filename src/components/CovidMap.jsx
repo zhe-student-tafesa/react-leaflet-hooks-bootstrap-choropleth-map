@@ -12,7 +12,7 @@ const CovidMap = ({ countries }) => {
     fillColor: "white",
     weight: 1,
     color: "white",
-    fillOpacity: 1,
+    fillOpacity: 0.5,
   };
 
   const onEachCountry = (country, layer) => {
@@ -21,7 +21,26 @@ const CovidMap = ({ countries }) => {
     const confirmedText = country.properties.confirmedText;
     const salesData = country.properties.salesData;
     //
- 
+    layer.on({
+      mouseover: (event) => {
+        if (layer.feature.properties.salesData != null) {
+          const layer = event.target;
+          //console.log(layer.feature.properties.salesData);
+          layer.setStyle({
+            fillOpacity: 1
+          });
+        }
+
+      },
+      mouseout: (event) => {
+        const layer = event.target;
+        layer.setStyle({
+          fillOpacity: 0.5  
+        });
+      }
+    });
+
+
     layer.bindPopup(function () {
       const popupContentElement = document.createElement("div");
       ReactDOM.render(

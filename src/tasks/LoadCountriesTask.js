@@ -1,6 +1,8 @@
 import papa from "papaparse";
 import legendItems from "../entities/LegendItems";
 import countries from "../data/countries.json";
+/// Frank add mock data
+import countriesProfit from "../data/mockCountriesData.json";
 //    this.setState(countries.features);
 
 class LoadCountryTask {
@@ -15,7 +17,7 @@ class LoadCountryTask {
     papa.parse(this.covidUrl, {
       download: true,
       header: true,
-      complete: (result) => this.#processCovidData(result.data),
+      complete: (result) => this.#processProfitData(countriesProfit.data.countriesProfitList),
       // result is json (from CSV)
     });
   };
@@ -119,10 +121,54 @@ class LoadCountryTask {
     this.setState(countries.features);
   };
 
+
+  #processProfitData = (profitCountries) => {
+    // use mock data set Geo's country
+ 
+    for (let i = 0; i < countries.features.length; i++) {
+      const country = countries.features[i];
+      const profitCountry = profitCountries.find(
+        (profitCountry) => country.properties.ISO_A3 === profitCountry.name
+      );
+
+      country.properties.confirmed = 0;
+      country.properties.confirmedText = 0;
+      country.properties.salesData = null;
+
+      // use mock data set Geo's country
+   
+      if (profitCountry != null) {
+        let confirmed = Number(profitCountry.Confirmed);
+        country.properties.confirmed = confirmed;
+        country.properties.confirmedText = this.#formatNumberWithCommas(
+          confirmed
+        );
+        // use mock data to set country
+        country.properties.salesData = profitCountry.data;
+          
+      }
+      this.#setCountryColorAccordingProfit(country);
+    }
+
+    this.setState(countries.features);
+  };
+
   #setCountryColor = (country) => {
     // use isFor function and confirmed: get according legendItem
     const legendItem = legendItems.find((item) =>
       item.isFor(country.properties.confirmed)
+    );
+    // use legendItem.color set Geo's country'color
+    // use legendItem.color set Geo's country'color
+    // use legendItem.color set Geo's country'color
+    if (legendItem != null) {
+      country.properties.color = legendItem.color;
+    }
+  };
+  #setCountryColorAccordingProfit = (country) => {
+    // use isFor function and confirmed: get according legendItem
+    const legendItem = legendItems.find((item) =>
+      item.isFor(country.properties.salesData != null)
     );
     // use legendItem.color set Geo's country'color
     // use legendItem.color set Geo's country'color

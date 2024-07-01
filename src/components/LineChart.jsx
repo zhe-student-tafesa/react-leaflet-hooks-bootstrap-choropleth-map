@@ -13,12 +13,12 @@ const LineChartComponent = ({ salesData }) => {
             width={300}
             height={300}
             data={salesData}
-            margin={{ right: 30, top:20 }}>
+            margin={{ right: 30, top: 20 }}>
 
             <CartesianGrid strokeDasharray="3 3" />
             <YAxis />
             <XAxis dataKey="name" />
-           
+            <Tooltip content={<CustomTooltip />} />
             {/* bottom description */}
             <Legend />
 
@@ -30,20 +30,21 @@ const LineChartComponent = ({ salesData }) => {
 }
 
 const CustomTooltip = ({ active, payload, label }) => {
+    // console.log("active: ", active);
+    // console.log("payload: ", payload);
+    // console.log("payload.length: ", payload.length);
     if (active && payload && payload.length) {
         return (
-            <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
-                <p className="text-medium text-lg text-white">{label}</p>
-                <p className="text-sm text-blue-400">
-                    revenue:
-                    <span className="ml-2">${payload[0].value}</span>
-                </p>
+            <div className="p-1 bg-slate-900 flex flex-col gap-4 rounded-md">
+                <p className="text-medium text-lg text-red">{label}</p>
                 <p className="text-sm text-indigo-400">
                     profit:
-                    <span className="ml-2">${payload[1].value}</span>
+                    <span className="ml-2">${payload[0].value}</span>
                 </p>
             </div>
         );
+    } else {
+        return (null);
     }
 };
 
