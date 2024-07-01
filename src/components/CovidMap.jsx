@@ -11,7 +11,7 @@ const CovidMap = ({ countries }) => {
   const mapStyle = {
     fillColor: "white",
     weight: 1,
-    color: "black",
+    color: "white",
     fillOpacity: 1,
   };
 

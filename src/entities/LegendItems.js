@@ -3,7 +3,7 @@ import LegendItem from "./LengendItem";
 var legendItems = [
   new LegendItem(
     "1,000,000 +",
-    "#741f1f",
+    "#0f1d41",
     // if cases great than 1,000,000: TRUE
     // set color: #741f1f // Really red
     (cases) => cases >= 1_000_000,
@@ -13,30 +13,30 @@ var legendItems = [
   new LegendItem(
     "500,000 - 999,999",
     // "#741f1f",
-    "#9c2929",
+    "#0f1d41",
     (cases) => cases >= 500_000 && cases < 1_000_000,
     "White"
   ),
 
   new LegendItem(
     "200,000 - 499,999",
-    "#c57f7f",
+    "#0f1d41",
     (cases) => cases >= 200_000 && cases < 500_000
   ),
 
   new LegendItem(
     "50,000 - 199,999",
-    "#d8aaaa",
+    "#0f1d41",
     (cases) => cases >= 50_000 && cases < 200_000
   ),
 
   new LegendItem(
     "0 - 49,999",
-    "#ebd4d4",
+    "#0f1d41",
     (cases) => cases > 0 && cases < 50_000
   ),
 
-  new LegendItem("No Data", "#ffffff", (cases) => true),
+  new LegendItem("No Data", "#e0e0e0", (cases) => true),
 ];
 
 export default legendItems;
