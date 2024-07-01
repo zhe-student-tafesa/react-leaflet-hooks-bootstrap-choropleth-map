@@ -1,4 +1,5 @@
 import React from "react";
+import './LineCharts.css';
 import {
     LineChart, Line, ResponsiveContainer,
     XAxis, YAxis, CartesianGrid,
@@ -35,9 +36,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     // console.log("payload.length: ", payload.length);
     if (active && payload && payload.length) {
         return (
-            <div className="p-1 bg-slate-900 flex flex-col gap-4 rounded-md">
-                <p className="text-medium text-lg text-red">{label}</p>
-                <p className="text-sm text-indigo-400">
+            <div className="popup-container">
+                <p className="popup-title">{label}</p>
+                <p className="popup-text">
                     profit:
                     <span className="ml-2">${payload[0].value}</span>
                 </p>
