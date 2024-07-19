@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import topBarReducer from '../components/top_bar/store/reducer';
+import   { reducer as topBarReducer } from  '../components/top_bar/store';
 
-export default combineReducers({
+const reducer = combineReducers({
     topBar: topBarReducer
 })
+
+export default reducer;

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 
 import { connect } from 'react-redux';
 import TopBarItem from './TopBarItem';
+import {actionCreators} from './store';
 
 
 
@@ -53,16 +54,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleFocus() {
-            const action = {
-                type: 'search_focus'
-            };
+            const action = actionCreators.searchFocus();
             dispatch(action);
         },
         handleBlur() {
             // console.log('456');
-            const action = {
-                type: 'search_blur'
-            };
+            const action = actionCreators.searchBlur();
             dispatch(action);
         },
     }
