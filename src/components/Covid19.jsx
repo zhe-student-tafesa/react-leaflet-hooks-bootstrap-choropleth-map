@@ -5,6 +5,7 @@ import CovidMap from "./CovidMap";
 import LoadCountriesTask from "../tasks/LoadCountriesTask";
 import Legend from "./Legend";
 import legendItems from "../entities/LegendItems";
+import TopBar from "./TopBar";
 
 const Covid19 = () => {
   const [countries, setCountries] = useState([]);
@@ -25,6 +26,7 @@ const Covid19 = () => {
         <Loading />
       ) : (
         <div>
+          <TopBar />
           <CovidMap countries={countries} />
           {/* <Legend legendItems={legendItemsReverse} /> */}
         </div>
