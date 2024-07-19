@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
-import TopBarItem from './TopBarItem';
+
 import { connect } from 'react-redux';
+import TopBarItem from './TopBarItem';
 
 
 
@@ -51,15 +52,15 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleFocus(){
-            const action={
+        handleFocus() {
+            const action = {
                 type: 'search_focus'
             };
             dispatch(action);
         },
-        handleBlur(){
+        handleBlur() {
             // console.log('456');
-            const action={
+            const action = {
                 type: 'search_blur'
             };
             dispatch(action);

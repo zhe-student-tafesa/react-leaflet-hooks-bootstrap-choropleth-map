@@ -5,7 +5,7 @@ import CovidMap from "./CovidMap";
 import LoadCountriesTask from "../tasks/LoadCountriesTask";
 import Legend from "./Legend";
 import legendItems from "../entities/LegendItems";
-import TopBar from "./TopBar";
+import TopBar from "./top_bar/TopBar";
 
 const Covid19 = () => {
   const [countries, setCountries] = useState([]);
