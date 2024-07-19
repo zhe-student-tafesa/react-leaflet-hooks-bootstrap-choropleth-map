@@ -47,7 +47,7 @@ class TopBar extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.focused
+        focused: state.topBar.focused
     }
 }
 const mapDispatchToProps = (dispatch) => {
