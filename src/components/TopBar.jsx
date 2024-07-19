@@ -36,6 +36,8 @@ class TopBar extends PureComponent {
                 <TopBarItem backgroundColor="orange" color="black" number={456} title={"Sales Data"} />
                 <TopBarItem backgroundColor="green" color="white" number={789} title={"Profit"} />
                 <div>{this.props.focused ? 't' : 'F'}</div>
+                <button onClick={this.props.handleFocus}>Focus</button>
+                <button onClick={this.props.handleBlur}>Blur</button>
 
             </div>
         );
@@ -48,7 +50,21 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        handleFocus(){
+            const action={
+                type: 'search_focus'
+            };
+            dispatch(action);
+        },
+        handleBlur(){
+            // console.log('456');
+            const action={
+                type: 'search_blur'
+            };
+            dispatch(action);
+        },
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopBar);
