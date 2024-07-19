@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 import { connect } from 'react-redux';
 import TopBarItem from './TopBarItem';
-import {actionCreators} from './store';
+import { actionCreators } from './store';
 
 
 
@@ -48,7 +48,8 @@ class TopBar extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.topBar.focused
+        //focused: state.get('topBar').get('focused')
+        focused: state.getIn(['topBar', 'focused'])
     }
 }
 const mapDispatchToProps = (dispatch) => {
