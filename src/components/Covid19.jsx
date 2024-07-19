@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Loading from "./Loading";
-import CovidMap from "./CovidMap";
+import MSAMap from "./map/MSAMap";
 import LoadCountriesTask from "../tasks/LoadCountriesTask";
 import Legend from "./Legend";
 import legendItems from "../entities/LegendItems";
@@ -27,7 +27,7 @@ const Covid19 = () => {
       ) : (
         <div>
           <TopBar />
-          <CovidMap countries={countries} />
+          <MSAMap countries={countries} />
           {/* <Legend legendItems={legendItemsReverse} /> */}
         </div>
       )}

@@ -1,13 +1,13 @@
 import React from "react";
 import { Map, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./CovidMap.css";
+import "./MSAMap.css";
 import ReactDOM from "react-dom";
 
 // Frank
-import PopupContent from "./PopupContent";
+import PopupContent from "../PopupContent";
 import ReactDOMServer from "react-dom/server";
-const CovidMap = ({ countries }) => {
+const MSAMap = ({ countries }) => {
   const mapStyle = {
     fillColor: "white",
     weight: 1,
@@ -42,6 +42,7 @@ const CovidMap = ({ countries }) => {
 
 
     layer.bindPopup(function () {
+      /// set selected country
       const popupContentElement = document.createElement("div");
       ReactDOM.render(
         <PopupContent
@@ -66,4 +67,4 @@ const CovidMap = ({ countries }) => {
   );
 };
 
-export default CovidMap;
+export default MSAMap;
