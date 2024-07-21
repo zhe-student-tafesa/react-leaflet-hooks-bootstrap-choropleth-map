@@ -3,10 +3,12 @@ import { Map, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MSAMap.css";
 import ReactDOM from "react-dom";
+import { actionCreators } from './store';
 
 // Frank
 import PopupContent from "../PopupContent";
 import ReactDOMServer from "react-dom/server";
+import { connect } from "react-redux";
 const MSAMap = ({ countries }) => {
   const mapStyle = {
     fillColor: "white",
@@ -43,6 +45,7 @@ const MSAMap = ({ countries }) => {
 
     layer.bindPopup(function () {
       /// set selected country
+      // props.handleSelect(country.properties.ISO_A3);
       const popupContentElement = document.createElement("div");
       ReactDOM.render(
         <PopupContent
@@ -67,4 +70,18 @@ const MSAMap = ({ countries }) => {
   );
 };
 
-export default MSAMap;
+const mapStateToProps = (state) => {
+  return {
+      focused: state.getIn(['map', 'selectedCountry'])
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+      handleSelect(countryName) {
+          const action = actionCreators.selectCountry(countryName);
+          dispatch(action);
+      },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MSAMap);

@@ -1,0 +1,1 @@
+export const SELECT_COUNTRY = 'map/SELECT_COUNTRY';
