@@ -15,9 +15,9 @@ class MSAMap extends Component {
     super(props);
   }
   render() {
-    const { countriesIM } = this.props;
+    const { countriesIM, handleSelect } = this.props;
     const countries = countriesIM.toJS();
-    console.log(countries);
+
     const mapStyle = {
       fillColor: "white",
       weight: 1,
@@ -30,6 +30,7 @@ class MSAMap extends Component {
       const name = country.properties.ADMIN;
       const confirmedText = country.properties.confirmedText;
       const salesData = country.properties.salesData;
+      
       //
       layer.on({
         mouseover: (event) => {
@@ -53,7 +54,8 @@ class MSAMap extends Component {
 
       layer.bindPopup(function () {
         /// set selected country
-        // props.handleSelect(country.properties.ISO_A3);
+       handleSelect(country.properties.ISO_A3);
+       console.log(salesData);
         const popupContentElement = document.createElement("div");
         ReactDOM.render(
           <PopupContent
