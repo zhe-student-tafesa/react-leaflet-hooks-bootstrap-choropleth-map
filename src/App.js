@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Covid19 from "./components/Covid19";
+import MSADashboard from "./components/dashboard/MSADashboard";
 import store from "./store";
 import { Provider } from "react-redux";
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-        <Covid19 />
+        <MSADashboard />
       </div>
     </Provider>
   );

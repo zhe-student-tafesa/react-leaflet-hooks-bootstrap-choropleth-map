@@ -1,86 +1,99 @@
-import React from "react";
+import React, { Component } from "react";
 import { Map, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MSAMap.css";
 import ReactDOM from "react-dom";
 import { actionCreators } from './store';
 
+
 // Frank
 import PopupContent from "../PopupContent";
 import ReactDOMServer from "react-dom/server";
 import { connect } from "react-redux";
-const MSAMap = ({ countries }) => {
-  const mapStyle = {
-    fillColor: "white",
-    weight: 1,
-    color: "white",
-    fillOpacity: 0.5,
-  };
+class MSAMap extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { countriesIM } = this.props;
+    const countries = countriesIM.toJS();
+    console.log(countries);
+    const mapStyle = {
+      fillColor: "white",
+      weight: 1,
+      color: "white",
+      fillOpacity: 0.5,
+    };
 
-  const onEachCountry = (country, layer) => {
-    layer.options.fillColor = country.properties.color;
-    const name = country.properties.ADMIN;
-    const confirmedText = country.properties.confirmedText;
-    const salesData = country.properties.salesData;
-    //
-    layer.on({
-      mouseover: (event) => {
-        if (layer.feature.properties.salesData != null) {
+    const onEachCountry = (country, layer) => {
+      layer.options.fillColor = country.properties.color;
+      const name = country.properties.ADMIN;
+      const confirmedText = country.properties.confirmedText;
+      const salesData = country.properties.salesData;
+      //
+      layer.on({
+        mouseover: (event) => {
+          if (layer.feature.properties.salesData != null) {
+            const layer = event.target;
+            //console.log(layer.feature.properties.salesData);
+            layer.setStyle({
+              fillOpacity: 1
+            });
+          }
+
+        },
+        mouseout: (event) => {
           const layer = event.target;
-          //console.log(layer.feature.properties.salesData);
           layer.setStyle({
-            fillOpacity: 1
+            fillOpacity: 0.5
           });
         }
-
-      },
-      mouseout: (event) => {
-        const layer = event.target;
-        layer.setStyle({
-          fillOpacity: 0.5  
-        });
-      }
-    });
+      });
 
 
-    layer.bindPopup(function () {
-      /// set selected country
-      // props.handleSelect(country.properties.ISO_A3);
-      const popupContentElement = document.createElement("div");
-      ReactDOM.render(
-        <PopupContent
-          name={name}
-          confirmedText={confirmedText}
-          salesData={salesData}
-        />,
-        popupContentElement
-      );
-      return popupContentElement;
-    });
-  };
+      layer.bindPopup(function () {
+        /// set selected country
+        // props.handleSelect(country.properties.ISO_A3);
+        const popupContentElement = document.createElement("div");
+        ReactDOM.render(
+          <PopupContent
+            name={name}
+            confirmedText={confirmedText}
+            salesData={salesData}
+          />,
+          popupContentElement
+        );
+        return popupContentElement;
+      });
+    };
 
-  return (
-    <Map style={{ height: "90vh" }} zoom={2} center={[20, 60]}>
-      <GeoJSON
-        style={mapStyle}
-        data={countries}
-        onEachFeature={onEachCountry}
-      />
-    </Map>
-  );
-};
+    return (
+      <Map style={{ height: "90vh" }} zoom={2} center={[20, 60]}>
+        <GeoJSON
+          style={mapStyle}
+          data={countriesIM.toJS()}
+          onEachFeature={onEachCountry}
+        />
+      </Map>
+    );
+
+  }
+}
+
 
 const mapStateToProps = (state) => {
   return {
-      focused: state.getIn(['map', 'selectedCountry'])
+    focused: state.getIn(['map', 'selectedCountry']),
+    countriesIM: state.getIn(['dashboard', 'countriesProfit'])
+
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-      handleSelect(countryName) {
-          const action = actionCreators.selectCountry(countryName);
-          dispatch(action);
-      },
+    handleSelect(countryName) {
+      const action = actionCreators.selectCountry(countryName);
+      dispatch(action);
+    },
   }
 }
 
