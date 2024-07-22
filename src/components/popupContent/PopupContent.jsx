@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
-import LineChartComponent from "./LineChart";
+import LineChartComponent from "../LineChart";
 import { connect } from "react-redux";
+import { actionCreators } from './store';
 
 class PopupContent extends PureComponent {
   render() {
-    const { fullName, salesData } = this.props;
+    const { fullName, salesData, handleSelectMining } = this.props;
     return (
       <div>
         {salesData != null ?
@@ -42,7 +43,7 @@ class PopupContent extends PureComponent {
                       borderRadius: "3px",
                       border: "1px solid #ddd"
                     }}
-                      onClick={() => console.log(mine.mineName)}
+                      onClick={() => handleSelectMining(mine.mineName)}
 
                     >{mine.mineName}</button>
                   );
@@ -69,7 +70,11 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    handleSelectMining(miningName) {
+      console.log("miningName: "+miningName);
+      const action = actionCreators.selectMining(miningName);
+      dispatch(action);
+    },
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PopupContent);

@@ -8,7 +8,7 @@ import store from "../../store";
 
 
 // Frank
-import PopupContent from "../PopupContent";
+import PopupContent from "../popupContent/PopupContent";
 import ReactDOMServer from "react-dom/server";
 import { connect, Provider } from "react-redux";
 class MSAMap extends Component {
