@@ -4,12 +4,13 @@ import "leaflet/dist/leaflet.css";
 import "./MSAMap.css";
 import ReactDOM from "react-dom";
 import { actionCreators } from './store';
+import store from "../../store";
 
 
 // Frank
 import PopupContent from "../PopupContent";
 import ReactDOMServer from "react-dom/server";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 class MSAMap extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +31,7 @@ class MSAMap extends Component {
       const name = country.properties.ADMIN;
       const confirmedText = country.properties.confirmedText;
       const salesData = country.properties.salesData;
-      
+
       //
       layer.on({
         mouseover: (event) => {
@@ -54,15 +55,11 @@ class MSAMap extends Component {
 
       layer.bindPopup(function () {
         /// set selected country
-       handleSelect(country.properties.ISO_A3);
-       console.log(salesData);
+        handleSelect(country.properties.ISO_A3, name, salesData);
+        console.log(salesData);
         const popupContentElement = document.createElement("div");
         ReactDOM.render(
-          <PopupContent
-            name={name}
-            confirmedText={confirmedText}
-            salesData={salesData}
-          />,
+          <Provider store={store}><PopupContent /></Provider>,
           popupContentElement
         );
         return popupContentElement;
@@ -92,8 +89,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSelect(countryName) {
-      const action = actionCreators.selectCountry(countryName);
+    handleSelect(countryName, fullName, salesData) {
+      const action = actionCreators.selectCountry(countryName, fullName, salesData);
       dispatch(action);
     },
   }
