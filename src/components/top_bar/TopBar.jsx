@@ -36,7 +36,7 @@ class TopBar extends PureComponent {
                 }}
             >
                 <TopBarItem backgroundColor="blue" color="white" number={123} title={"Employees Number"} />
-                <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData.toJS(), miningName)} title={"Sales Data"} />
+                <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData, miningName)} title={"Sales Data"} />
                 <TopBarItem backgroundColor="green" color="white" number={789} title={"Profit"} />
                 <div>{this.props.focused ? 't' : 'F'}</div>
                 <button onClick={this.props.handleFocus}>Focus</button>
@@ -45,8 +45,9 @@ class TopBar extends PureComponent {
             </div>
         );
     }
-    getLastSalesData(salesData, miningName) {
-        if (salesData != null && miningName != "") {
+    getLastSalesData(salesDataIm, miningName) {
+        if (salesDataIm != null && miningName != "") {
+            const salesData = salesDataIm.toJS()
             const selectedSalesData = salesData.find((item) => item.mineName === miningName);
             // console.log(selectedSalesData);
             // console.log(miningName);
