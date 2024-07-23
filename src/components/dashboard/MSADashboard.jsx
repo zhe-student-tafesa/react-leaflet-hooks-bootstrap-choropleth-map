@@ -8,6 +8,7 @@ import legendItems from "../../entities/LegendItems";
 import TopBar from "../top_bar/TopBar";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
+import { actionCreators as popupActionCreators } from '../popupContent/store';
 import LineChartComponent from "../LineChart";
 import "./MSADashboard.css";
 
@@ -15,7 +16,7 @@ import "./MSADashboard.css";
 class MSADashboard extends Component {
 
   render() {
-    const { countries, loading, showPopup, chartData } = this.props;
+    const { countries, loading, showPopup, chartData, handleClose } = this.props;
     return (
       <div>
         {loading ? (
@@ -27,15 +28,14 @@ class MSADashboard extends Component {
             <MSAMap />
             {/* <Legend legendItems={legendItemsReverse} /> */}
             {showPopup && (
-                  <div className="popup-overlay"
-                
-                  >
-                    <div className="popup-content">
-                      <button className="close-button" onClick={()=>console.log('close')}>Close Close Close  </button>
-                      <LineChartComponent salesData={chartData} />
-                    </div>
-                  </div>
-                )}
+              <div className="popup-overlay" >
+                <div className="popup-content">
+                  <button className="close-button" onClick={() => handleClose()}>X</button>
+                  <LineChartComponent salesData={chartData} />
+                </div>
+              </div>
+            )
+            }
           </div>
         )}
       </div>
@@ -64,6 +64,12 @@ const mapDispatchToProps = (dispatch) => {
       const action = actionCreators.getCountriesProfit();
       dispatch(action);
     },
+    handleClose() {
+      console.log('close....');
+      const action = popupActionCreators.hidePop();
+      dispatch(action);
+
+    }
 
   }
 }
