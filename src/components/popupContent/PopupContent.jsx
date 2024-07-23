@@ -71,7 +71,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSelectMining(miningName) {
-      console.log("miningName: "+miningName);
       const action = actionCreators.selectMining(miningName);
       dispatch(action);
     },

@@ -27,6 +27,7 @@ class TopBar extends PureComponent {
         super(props);
     }
     render() {
+        const { salesData, miningName } = this.props;
         return (
             <div
                 style={{
@@ -35,7 +36,7 @@ class TopBar extends PureComponent {
                 }}
             >
                 <TopBarItem backgroundColor="blue" color="white" number={123} title={"Employees Number"} />
-                <TopBarItem backgroundColor="orange" color="black" number={456} title={"Sales Data"} />
+                <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData.toJS(), miningName)} title={"Sales Data"} />
                 <TopBarItem backgroundColor="green" color="white" number={789} title={"Profit"} />
                 <div>{this.props.focused ? 't' : 'F'}</div>
                 <button onClick={this.props.handleFocus}>Focus</button>
@@ -44,12 +45,26 @@ class TopBar extends PureComponent {
             </div>
         );
     }
+    getLastSalesData(salesData, miningName) {
+        if (salesData != null && miningName != "") {
+            const selectedSalesData = salesData.find((item) => item.mineName === miningName);
+            // console.log(selectedSalesData);
+            // console.log(miningName);
+            const LastSalesData = (selectedSalesData.data)[selectedSalesData.data.length - 1].profit;
+            return LastSalesData;
+        } else {
+
+        }
+
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
         //focused: state.get('topBar').get('focused')
-        focused: state.getIn(['topBar', 'focused'])
+        focused: state.getIn(['topBar', 'focused']),
+        salesData: state.getIn(['map', 'salesData']),
+        miningName: state.getIn(['popupContent', 'miningName']),
     }
 }
 const mapDispatchToProps = (dispatch) => {
