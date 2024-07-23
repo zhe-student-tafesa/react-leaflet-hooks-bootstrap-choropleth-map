@@ -9,3 +9,27 @@ export const selectMining = (miningName) => {
     }
 };
 
+export const showPop = () => {
+    return {
+        type: constants.SHOW_POP,
+    }
+};
+export const hidePop = () => {
+    return {
+        type: constants.HIDE_POP,
+    }
+};
+
+export const setChartData = (data) => {
+    return {
+        type: constants.SET_CHART,
+        data: data
+    }
+};
+export const clearChartData = () => {
+    return {
+        type: constants.CLEAR_CHART,
+    }
+};
+
+

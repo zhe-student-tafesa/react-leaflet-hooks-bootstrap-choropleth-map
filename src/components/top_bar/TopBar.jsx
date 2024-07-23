@@ -54,7 +54,7 @@ class TopBar extends PureComponent {
             const LastSalesData = (selectedSalesData.data)[selectedSalesData.data.length - 1].profit;
             return LastSalesData;
         } else {
-
+            return 0;
         }
 
     }

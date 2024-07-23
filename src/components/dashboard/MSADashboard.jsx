@@ -8,12 +8,14 @@ import legendItems from "../../entities/LegendItems";
 import TopBar from "../top_bar/TopBar";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
+import LineChartComponent from "../LineChart";
+import "./MSADashboard.css";
 
 
 class MSADashboard extends Component {
 
   render() {
-    const { countries, loading } = this.props;
+    const { countries, loading, showPopup, chartData } = this.props;
     return (
       <div>
         {loading ? (
@@ -24,6 +26,16 @@ class MSADashboard extends Component {
             <TopBar />
             <MSAMap />
             {/* <Legend legendItems={legendItemsReverse} /> */}
+            {showPopup && (
+                  <div className="popup-overlay"
+                
+                  >
+                    <div className="popup-content">
+                      <button className="close-button" onClick={()=>console.log('close')}>Close Close Close  </button>
+                      <LineChartComponent salesData={chartData} />
+                    </div>
+                  </div>
+                )}
           </div>
         )}
       </div>
@@ -41,7 +53,9 @@ class MSADashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     countries: state.getIn(['dashboard', 'countriesProfit']),
-    loading: state.getIn(['dashboard', 'loading'])
+    loading: state.getIn(['dashboard', 'loading']),
+    chartData: (state.getIn(['popupContent', 'chartData']) != null) ? state.getIn(['popupContent', 'chartData']).toJS() : null,
+    showPopup: state.getIn(['popupContent', 'showPopup'])
   }
 }
 const mapDispatchToProps = (dispatch) => {

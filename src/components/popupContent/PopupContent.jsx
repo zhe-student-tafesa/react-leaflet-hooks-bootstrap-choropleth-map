@@ -5,7 +5,7 @@ import { actionCreators } from './store';
 
 class PopupContent extends PureComponent {
   render() {
-    const { fullName, salesData, handleSelectMining } = this.props;
+    const { fullName, salesData, handleSelectMining, showChart, showPopup, chartData } = this.props;
     return (
       <div>
         {salesData != null ?
@@ -43,11 +43,16 @@ class PopupContent extends PureComponent {
                       borderRadius: "3px",
                       border: "1px solid #ddd"
                     }}
-                      onClick={() => handleSelectMining(mine.mineName)}
+                      onClick={() => {
+                        handleSelectMining(mine.mineName);
+                        showChart(salesData, mine.mineName);
+
+                      }}
 
                     >{mine.mineName}</button>
                   );
                 })}
+
 
               </div>
             </div>
@@ -59,12 +64,14 @@ class PopupContent extends PureComponent {
       </div>
     );
   }
+
 }
 
 const mapStateToProps = (state) => {
   return {
     fullName: state.getIn(['map', 'fullName']),
     salesData: (state.getIn(['map', 'salesData']) != null) ? state.getIn(['map', 'salesData']).toJS() : null
+    
 
   }
 }
@@ -74,6 +81,21 @@ const mapDispatchToProps = (dispatch) => {
       const action = actionCreators.selectMining(miningName);
       dispatch(action);
     },
+    showChart(salesData, miningName) {
+      if (salesData != null && miningName != "") {
+        const selectedSalesData = salesData.find((item) => item.mineName === miningName);
+        // set chart data
+        const action1 = actionCreators.setChartData(selectedSalesData.data);
+        dispatch(action1);
+        // set showPop = true
+        const action2 = actionCreators.showPop();
+        dispatch(action2);
+
+      } else {
+
+      }
+    }
+
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PopupContent);
