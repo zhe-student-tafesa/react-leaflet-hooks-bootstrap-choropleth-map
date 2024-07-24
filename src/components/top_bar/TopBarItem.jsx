@@ -27,7 +27,7 @@ const TopBarItem = ({ backgroundColor, color, title, number }) => {
                 alignItems: "center", // vertical: align center
                 justifyContent: "center", // horizetl center
                 fontWeight: "bolder",
-                fontSize: "1em",
+                fontSize: "2.0em",
                 height: "10vh",
             }}
         >
@@ -37,7 +37,7 @@ const TopBarItem = ({ backgroundColor, color, title, number }) => {
                 alignItems: "center",
                 justifyContent: "center"
             }}>
-                <h3>{title}</h3>
+                <h5>{title}</h5>
                 <Number n={number}/>
             </div>
         </div>

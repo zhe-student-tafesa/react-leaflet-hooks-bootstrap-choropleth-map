@@ -35,7 +35,7 @@ class TopBar extends PureComponent {
                     alignItems: "stretch",
                 }}
             >
-                <TopBarItem backgroundColor="blue" color="white" number={123} title={"Employees Number"} />
+                <TopBarItem backgroundColor="#0f1d41" color="white" number={123} title={"Employees Number"} />
                 <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData, miningName)} title={"Sales Data"} />
                 <TopBarItem backgroundColor="green" color="white" number={789} title={"Profit"} />
                 {/* <div>{this.props.focused ? 't' : 'F'}</div>

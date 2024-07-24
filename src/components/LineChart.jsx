@@ -24,7 +24,7 @@ const LineChartComponent = ({ salesData }) => {
             <Legend />
 
             {/* <Line dataKey='revenue' fill="#3b82f6" type="monotone" /> */}
-            <Line dataKey='profit' fill="#8b5cf6" type="monotone" />
+            <Line dataKey='profit' fill="#0f1d41" type="monotone" />
         </LineChart>
     </ResponsiveContainer>
 
@@ -39,7 +39,7 @@ const CustomTooltip = ({ active, payload, label }) => {
             <div className="popup-container">
                 <p className="popup-title">{label}</p>
                 <p className="popup-text">
-                    profit:
+                    Amount:
                     <span>${payload[0].value}</span>
                 </p>
             </div>
