@@ -36,8 +36,8 @@ class TopBar extends PureComponent {
                 }}
             >
                 <TopBarItem backgroundColor="#0f1d41" color="white" number={423} title={"Employees Number"} />
-                <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData, miningName)} title={"Sales Data (Unit: Million)"} />
-                <TopBarItem backgroundColor="green" color="white" number={789} title={"Profit (Unit: Million)"} />
+                <TopBarItem backgroundColor="orange" color="black" number={this.getLastSalesData(salesData, miningName)} title={"Profit (Unit: Million)"} />
+                <TopBarItem backgroundColor="green" color="white" number={4789} title={"Sales Data (Unit: Million)"} />
                 {/* <div>{this.props.focused ? 't' : 'F'}</div>
                 <button onClick={this.props.handleFocus}>Focus</button>
                 <button onClick={this.props.handleBlur}>Blur</button> */}
