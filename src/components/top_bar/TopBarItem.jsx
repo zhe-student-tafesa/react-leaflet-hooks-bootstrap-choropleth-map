@@ -37,7 +37,7 @@ const TopBarItem = ({ backgroundColor, color, title, number }) => {
                 alignItems: "center",
                 justifyContent: "center"
             }}>
-                <h5>{title}</h5>
+                <h5  style={{fontSize: "16px" }}>{title}</h5>
                 <Number n={number}/>
             </div>
         </div>

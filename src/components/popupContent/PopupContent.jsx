@@ -17,15 +17,14 @@ class PopupContent extends PureComponent {
           >
             <div
               style={{
-                width: "300px",
+                width: "320px",
                 paddingRight: "15px",
                 paddingTop: "7px",
                 paddingBottom: "7px",
-                boxShadow: "0 0 8px rgba(0, 0, 0, .2)",
-                background: "white"
+               
               }}
             >
-              <div style={{ margin: "0  0px 10px 0", paddingLeft:"5px" }}>Mine List</div>
+              <div style={{ margin: "0  0px 10px 0", paddingLeft:"5px", fontSize: "20px" }}>Mines List</div>
               <div id="SearchItemWrapper"
                 style={{
                    padding: "0 15px"
