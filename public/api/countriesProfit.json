@@ -10,31 +10,38 @@
                         "data": [
                             {
                                 "name": "Jan",
-                                "profit": 2200
+                                "profit": 2200,
+                                "previousProfit": 2000
                             },
                             {
                                 "name": "Feb",
-                                "profit": 2398
+                                "profit": 2398,
+                                "previousProfit": 2100
                             },
                             {
                                 "name": "Mar",
-                                "profit": 2500
+                                "profit": 2500,
+                                "previousProfit": 2400
                             },
                             {
                                 "name": "Apr",
-                                "profit": 2600
+                                "profit": 2600,
+                                "previousProfit": 2500
                             },
                             {
                                 "name": "May",
-                                "profit": 2666
+                                "profit": 2966,
+                                "previousProfit": 2550
                             },
                             {
                                 "name": "Jun",
-                                "profit": 2766
+                                "profit": 3166,
+                                "previousProfit": 2600
                             },
                             {
                                 "name": "Jul",
-                                "profit": 2866
+                                "profit": 3466,
+                                "previousProfit": 2700
                             }
                         ]
                     },
@@ -43,31 +50,38 @@
                         "data": [
                             {
                                 "name": "Jan",
-                                "profit": 1100
+                                "profit": 1100,
+                                "previousProfit": 800
                             },
                             {
                                 "name": "Feb",
-                                "profit": 1298
+                                "profit": 1298,
+                                "previousProfit": 900
                             },
                             {
                                 "name": "Mar",
-                                "profit": 1300
+                                "profit": 1300,
+                                "previousProfit": 1000
                             },
                             {
                                 "name": "Apr",
-                                "profit": 1400
+                                "profit": 1400,
+                                "previousProfit": 1100
                             },
                             {
                                 "name": "May",
-                                "profit": 1566
+                                "profit": 1566,
+                                "previousProfit": 1200
                             },
                             {
                                 "name": "Jun",
-                                "profit": 1666
+                                "profit": 1666,
+                                "previousProfit": 1220
                             },
                             {
                                 "name": "Jul",
-                                "profit": 1766
+                                "profit": 1866,
+                                "previousProfit": 1300
                             }
                         ]
                     },
@@ -76,31 +90,38 @@
                         "data": [
                             {
                                 "name": "Jan",
-                                "profit": 700
+                                "profit": 700,
+                                "previousProfit": 560
                             },
                             {
                                 "name": "Feb",
-                                "profit": 898
+                                "profit": 898,
+                                "previousProfit": 660
                             },
                             {
                                 "name": "Mar",
-                                "profit": 900
+                                "profit": 900,
+                                "previousProfit": 690
                             },
                             {
                                 "name": "Apr",
-                                "profit": 1100
+                                "profit": 1100,
+                                "previousProfit": 760
                             },
                             {
                                 "name": "May",
-                                "profit": 1266
+                                "profit": 1266,
+                                "previousProfit": 860
                             },
                             {
                                 "name": "Jun",
-                                "profit": 1366
+                                "profit": 1366,
+                                "previousProfit": 880
                             },
                             {
                                 "name": "Jul",
-                                "profit": 1566
+                                "profit": 1566,
+                                "previousProfit": 960
                             }
                         ]
                     }
