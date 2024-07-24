@@ -12,7 +12,7 @@ function Number({n}){
         }
     );
     return <animated.div>{number.to(
-        (n)=>n.toFixed(1)
+        (n)=>n.toFixed(0)
     )}</animated.div>
 }
 
@@ -27,7 +27,7 @@ const TopBarItem = ({ backgroundColor, color, title, number }) => {
                 alignItems: "center", // vertical: align center
                 justifyContent: "center", // horizetl center
                 fontWeight: "bolder",
-                fontSize: "2.0em",
+                fontSize: "2.3em",
                 height: "10vh",
             }}
         >
