@@ -20,28 +20,29 @@ class PopupContent extends PureComponent {
                 width: "300px",
                 paddingRight: "15px",
                 paddingTop: "7px",
+                paddingBottom: "7px",
                 boxShadow: "0 0 8px rgba(0, 0, 0, .2)",
                 background: "white"
               }}
             >
-              <div style={{ margin: "0  0px 10px 0", }}>Mine List</div>
+              <div style={{ margin: "0  0px 10px 0", paddingLeft:"5px" }}>Mine List</div>
               <div id="SearchItemWrapper"
                 style={{
-                  overflow: "hidden", padding: "0 15px"
+                   padding: "0 15px"
                 }}
               >
                 {salesData.map((mine) => {
                   return (
-                    <button style={{
-                      float: "left",
-                      display: "block",
+                    <div style={{
+                      
                       padding: "0 5px",
                       margin: "0 10px 10px 0",
                       fontSize: "12px",
                       lineHeight: "20px",
                       color: "#787878",
                       borderRadius: "3px",
-                      border: "1px solid #ddd"
+                      border: "1px solid #ddd",
+                      textAlign: "center"
                     }}
                       onClick={() => {
                         handleSelectMining(mine.mineName);
@@ -49,7 +50,8 @@ class PopupContent extends PureComponent {
 
                       }}
 
-                    >{mine.mineName}</button>
+                    >{mine.mineName}
+                    </div>
                   );
                 })}
 
