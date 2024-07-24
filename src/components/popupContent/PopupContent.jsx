@@ -39,10 +39,11 @@ class PopupContent extends PureComponent {
                       margin: "0 10px 10px 0",
                       fontSize: "12px",
                       lineHeight: "20px",
-                      color: "#787878",
+                      color: "white",
                       borderRadius: "3px",
                       border: "1px solid #ddd",
-                      textAlign: "center"
+                      textAlign: "center",
+                      background: "#0f1d41"
                     }}
                       onClick={() => {
                         handleSelectMining(mine.mineName);
