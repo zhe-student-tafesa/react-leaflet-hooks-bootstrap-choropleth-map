@@ -1,3 +1,6 @@
+# deploy the app to firebase:
+https://msa-map-6d426.web.app/
+
 # react-leaflet-hooks-bootstrap-choropleth-map
 # choropleth_map: Display different colors according to different data
 
